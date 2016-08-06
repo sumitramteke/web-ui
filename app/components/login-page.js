@@ -6,11 +6,12 @@ export default Ember.Component.extend({
 
 	actions: {
 	authenticate() {
+	  let self = this;
 	  const { login, password } = this.getProperties('login', 'password');
 	  this.get('authManager').authenticate('authenticator:oauth2', login, password).then(() => {
-	    alert('Successfully Authenticated!');
+	    console.info('Successfully Authenticated!');
 	  }, (err) => {
-	    alert('Error obtaining token: ' + err.responseText);
+	    console.error('Error obtaining token: ' + err.responseText);
 	  });
 	}
 	}

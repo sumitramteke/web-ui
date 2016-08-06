@@ -1,0 +1,18 @@
+{{#if authManager.currentUser}}
+<div class="ui container masthead">
+	<div class="ui large top fixed menu">
+		 <div class="item">
+		    <img class="ui avatar image" src="/images/elyse.png">
+		    <div class="content">
+		      <div class="ui header">David</div>
+		      Cheif Executive Officer
+		    </div>
+		 </div>
+	  	<div class="right menu">
+	      <div class="item">
+	        <a class="ui red button" {{action 'invalidateSession'}}>Logout</a>
+	      </div>
+	    </div>
+	</div>
+</div>
+{{/if}}
