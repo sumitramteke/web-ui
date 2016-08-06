@@ -1,0 +1,49 @@
+<style>
+
+    body {
+      background-color: #DADADA;
+    }
+    body > .grid {
+      height: 100%;
+    }
+    .wkype-hdr {
+      margin-top: 100px;
+    }
+    .column {
+      max-width: 450px;
+    }
+
+</style>
+<div class="ui middle aligned center aligned grid">
+  <div class="column wkype-hdr">
+    <h2 class="ui teal header">
+      <div class="content">
+        Workype: Log-in to your account
+      </div>
+    </h2>
+    <form class="ui large form" {{action 'authenticate' on='submit'}}>
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            {{input value=login placeholder='Login'}}
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            {{input value=password placeholder='Password' type='password'}}
+          </div>
+        </div>
+        <button class="ui fluid large teal submit button" type="submit">Login</button>
+      </div>
+
+      <div class="ui error message"></div>
+
+    </form>
+
+    <div class="ui message">
+      New to us? <a href="#">Sign Up</a>
+    </div>
+  </div>
+</div>
