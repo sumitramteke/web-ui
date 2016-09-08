@@ -1,9 +1,7 @@
 import JSONAPISerializer from 'ember-data/serializers/json-api';
 
 export default JSONAPISerializer.extend({
-	normalizeArrayResponse (store, primaryModelClass, payload, id, requestType) {
-		console.log(payload);
-		delete payload['included'];
+	normalizeArrayResponse (store, primaryModelClass, payload/*, id, requestType*/) {
 		return payload;
 	}
 });

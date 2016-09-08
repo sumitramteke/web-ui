@@ -1,11 +1,17 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
-import { belongsTo, hasMany } from 'ember-data/relationships';
+import { hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   companyname: attr(),
   contact: attr(),
   email: attr(),
   employeecount: attr(),
-  address: belongsTo('address')
+  filesURL: attr(),
+  language: attr(),
+  requirements: attr(),
+  specialties: attr(),
+  url: attr(),
+  videoURL: attr(),
+  address: hasMany('address')
 });
