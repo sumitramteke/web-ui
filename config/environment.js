@@ -40,6 +40,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV['ember-simple-auth'] = {
+      baseURL: 'http://52.11.130.33:9000'
+    };
 
   }
 
