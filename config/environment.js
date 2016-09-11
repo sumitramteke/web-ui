@@ -41,7 +41,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.APP.API_HOST = 'http://52.11.130.33:9000';
-    ENV['simple-auth'] = {
+    ENV['ember-simple-auth'] = {
       authorizer: 'authorizer:application',
       serverTokenEndpoint: 'http://52.11.130.33:9000/token',
       crossOriginWhitelist: ['http://52.11.130.33:9000']
