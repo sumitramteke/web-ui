@@ -16,6 +16,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      API_HOST: '/'//'http://52.11.130.33:9000'
     }
   };
 
@@ -41,13 +42,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.APP.API_HOST = 'http://52.11.130.33:9000';
-    ENV['ember-simple-auth'] = {
-      baseURL: 'http://52.11.130.33:9000',
-      authorizer: 'authorizer:application',
-      serverTokenEndpoint: 'http://52.11.130.33:9000/token',
-      crossOriginWhitelist: ['http://52.11.130.33:9000']
-    };
-
+    ENV['ember-simple-auth'].baseURL = 'http://52.11.130.33:9000';
   }
 
   return ENV;

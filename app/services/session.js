@@ -8,7 +8,11 @@ export default ESASession.extend({
 
   currentUser: Ember.computed('isAuthenticated', function() {
     if (this.get('isAuthenticated')) {
-      const promise = this.get('store').queryRecord('user', {});
+      const promise = this.get('store').queryRecord('user', {
+  filter: {
+    email: 'sumitvramteke@gmail.com'
+  }
+});
       return DS.PromiseObject.create({ promise: promise });
     }
   })

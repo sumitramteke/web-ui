@@ -4,24 +4,9 @@ module.exports = function(app) {
 
   app.use(bodyParser.urlencoded({ extended: true }));
 
-  app.get('/api/codes', function (req, res) { 
-
-  	if (req.headers['authorization'] !== "Bearer some bs") {
-      return res.status(401).send('Unauthorized');
-    }
-
-    return res.status(200).send({
-      codes: [
-        { id: 1, description: 'Obama Nuclear Missile Launching Code is: lovedronesandthensa' },
-        { id: 2, description: 'Putin Nuclear Missile Launching Code is: invasioncoolashuntingshirtless' }
-      ]
-    });
-  });
-
-
   app.post('/token', function(req, res) {
 
-    if (req.body.username == 'login' && req.body.password == 'ok') {
+    if (req.body.username == 'sumitvramteke@gmail.com' && req.body.password == 'ok') {
       res.send({ access_token: "some bs" });
     } else {
       res.status(400).send({ error: "invalid_grant" });
@@ -30,7 +15,20 @@ module.exports = function(app) {
   });
 
   app.get('/api/users', function (req, res) {
-    return res.status(200).send({ user: { id: 1, email: 'vladimir@kremlin.ru' }});
+    if (req.body.username = 'sumitvramteke@gmail.com') {
+      return res.status(200).send({"data":[{"type":"user","id":"575262580b318975bfe3a270","attributes":{"company":"Exusia","contact":"9890864954","description":"I am a developer","email":"sumitvramteke@gmail.com","first-name":"Rishiraj","job-title":"I am developer","last-name":"Shengule","sec-contact":"8605266396","username":"rishiraj.shengule","years-of-exp":"1"},"relationships":{"address":{"data":[{"type":"address","id":"Rishirajad"}]}}}],"included":[{"type":"address","id":"Rishirajad","attributes":{"city":"Pune","country":"India","state":"Maharashtra","street":"Shahu colony lane no 11 Karvenagar","zipcode":"411052"}}]});      
+    } else {
+      return res.status(400).send({ user: { id: 1, email: 'vladimir@kremlin.ru' }});
+    }
+  });
+
+  app.get('/api/users/:userid', function (req, res) {
+    
+    if(req.params.userid !== "575262580b318975bfe3a270") {
+      return res.status(401).send('User with id: ' + req.params.userid + ' not found');
+    }
+
+    return res.status(200).send({"data":[{"type":"user","id":"575262580b318975bfe3a270","attributes":{"company":"Exusia","contact":"9890864954","description":"I am a developer","email":"sumitvramteke@gmail.com","first-name":"Rishiraj","job-title":"I am developer","last-name":"Shengule","sec-contact":"8605266396","username":"rishiraj.shengule","years-of-exp":"1"},"relationships":{"address":{"data":[{"type":"address","id":"Rishirajad"}]}}}],"included":[{"type":"address","id":"Rishirajad","attributes":{"city":"Pune","country":"India","state":"Maharashtra","street":"Shahu colony lane no 11 Karvenagar","zipcode":"411052"}}]});
   });
 
 

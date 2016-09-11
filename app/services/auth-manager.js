@@ -10,6 +10,7 @@ export default Ember.Service.extend({
 	  data: { username: login, password: password }
 	}).then((result) => {
 	  this.set('accessToken', result.access_token);
+	  this.set('username', login);
 	});
 	},
 
