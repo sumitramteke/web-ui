@@ -1,6 +1,8 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
+  var deployTarget = process.env.DEPLOY_TARGET;
+
   var ENV = {
     modulePrefix: 'web-ui',
     environment: environment,
@@ -40,9 +42,11 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
-  if (environment === 'production') {
+  if (environment === 'production' || deployTarget === 'production') {
     ENV.APP.API_HOST = 'http://52.11.130.33:9000';
-    ENV['ember-simple-auth'].baseURL = 'http://52.11.130.33:9000';
+    ENV['ember-simple-auth'] = {
+      'baseURL': 'http://52.11.130.33:9000'
+    }
   }
 
   return ENV;
