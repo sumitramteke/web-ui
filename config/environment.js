@@ -18,7 +18,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      API_HOST: 'http://52.11.130.33:9000'
+      API_HOST: '/'
     }
   };
 
