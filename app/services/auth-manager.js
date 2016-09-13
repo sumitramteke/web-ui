@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from '../config/environment';
 
 export default Ember.Service.extend({
 	accessToken: null,
@@ -6,7 +7,7 @@ export default Ember.Service.extend({
 	authenticate(login, password) {
 	return Ember.$.ajax({
 	  method: "POST",
-	  url: "/token",
+	  url: ENV.APP.API_HOST + "/token",
 	  data: { username: login, password: password }
 	}).then((result) => {
 	  this.set('accessToken', result.access_token);
