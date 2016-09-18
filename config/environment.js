@@ -43,10 +43,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production' || deployTarget === 'production') {
-    ENV.APP.API_HOST = 'http://52.11.130.33:9000';
-    ENV['ember-simple-auth'] = {
-      'baseURL': 'http://52.11.130.33:9000'
-    }
+    // ENV.APP.API_HOST = 'http://ec2-52-11-130-33.us-west-2.compute.amazonaws.com:9000';
+    // ENV['ember-simple-auth'] = {
+    //   'baseURL': 'http://ec2-52-11-130-33.us-west-2.compute.amazonaws.com:9000'
+    // }
   }
 
   return ENV;
