@@ -52,7 +52,7 @@ module.exports = function(environment) {
     }
   }
 
-  console.log(ENV);
+  // console.log(ENV);
 
   return ENV;
 };
