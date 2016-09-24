@@ -8,6 +8,9 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    'ember-simple-auth': {
+        'baseURL': 'http://localhost:9000'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -18,7 +21,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      API_HOST: '/'
+      API_HOST: 'http://localhost:9000/api'
     }
   };
 
@@ -43,11 +46,13 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production' || deployTarget === 'production') {
-    // ENV.APP.API_HOST = 'http://ec2-52-11-130-33.us-west-2.compute.amazonaws.com:9000';
-    // ENV['ember-simple-auth'] = {
-    //   'baseURL': 'http://ec2-52-11-130-33.us-west-2.compute.amazonaws.com:9000'
-    // }
+    ENV.APP.API_HOST = 'http://ec2-52-11-130-33.us-west-2.compute.amazonaws.com:9000';
+    ENV['ember-simple-auth'] = {
+      'baseURL': 'http://ec2-52-11-130-33.us-west-2.compute.amazonaws.com:9000'
+    }
   }
+
+  console.log(ENV);
 
   return ENV;
 };

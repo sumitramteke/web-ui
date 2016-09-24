@@ -15,7 +15,7 @@ module.exports = function(app) {
   });
 
   app.get('/api/users', function (req, res) {
-    if (req.body.username = 'sumitvramteke@gmail.com') {
+    if (req.headers['Authorization'] !== "Bearer some bs" && req.query.email === 'sumitvramteke@gmail.com') {
       return res.status(200).send({"data":[{"type":"user","id":"575262580b318975bfe3a270","attributes":{"company":"Exusia","contact":"9890864954","description":"I am a developer","email":"sumitvramteke@gmail.com","first-name":"Rishiraj","job-title":"I am developer","last-name":"Shengule","sec-contact":"8605266396","username":"rishiraj.shengule","years-of-exp":"1"},"relationships":{"address":{"data":[{"type":"address","id":"Rishirajad"}]}}}],"included":[{"type":"address","id":"Rishirajad","attributes":{"city":"Pune","country":"India","state":"Maharashtra","street":"Shahu colony lane no 11 Karvenagar","zipcode":"411052"}}]});      
     } else {
       return res.status(400).send({ user: { id: 1, email: 'vladimir@kremlin.ru' }});

@@ -8,20 +8,35 @@ module.exports = function(deployTarget) {
     'revision-data': {
       type: 'git-commit'
     },
-    's3-index': {
-      accessKeyId: '<your-aws-access-key>',
-      secretAccessKey: '<your-aws-secret>',
-      bucket: '<your-s3-bucket>',
-      region: '<the-region-your-bucket-is-in>',
+    /*'s3-index': {
+      accessKeyId: "AKIAI7US6P75ELDVY7JQ",
+      secretAccessKey: "1J48o80hV2Yi882jrvH2I6d4ZCQbkF+RM/60FYK7",
+      bucket: "workypeui",
+      region: "us-west-2",
       allowOverwrite: true
     },
     's3': {
-      accessKeyId: '<your-aws-access-key>',
-      secretAccessKey: '<your-aws-secret>',
-      bucket: '<your-s3-bucket>',
-      region: '<the-region-your-bucket-is-in>'
-    }
+      accessKeyId: "AKIAI7US6P75ELDVY7JQ",
+      secretAccessKey: "1J48o80hV2Yi882jrvH2I6d4ZCQbkF+RM/60FYK7",
+      bucket: "workypeui",
+      region: "us-west-2"
+    }*/
     // include other plugin configuration that applies to all deploy targets here
+    'ssh-index': {
+      remoteDir: "/usr/local/www/workype",
+      username: "ubuntu",
+      host: "52.11.130.33",
+      privateKeyFile: "F:\\aws\\workype-app.pem",
+      allowOverwrite: true
+    },
+    rsync: {
+      type: 'rsync',
+      dest: "/usr/local/www/workype",
+      recursive: true,
+      host: "ubuntu@52.11.130.33",
+      delete: false,
+      args: ['--verbose', "--rsync-path='sudo -u www-data rsync'", '-ztl']
+    }
   };
 
   if (deployTarget === 'development') {

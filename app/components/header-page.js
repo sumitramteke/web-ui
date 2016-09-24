@@ -5,7 +5,14 @@ export default Ember.Component.extend({
 
 	actions: {
 		invalidateSession() {
-			this.get('authManager').invalidate();
+			let self = this;
+			this.get('authManager').invalidate().then((response) => {
+				console.log("invalidated with response: ", response);
+				self.sendAction('signOut');
+			});
+		},
+		signOut() {
+			this.sendAction('signOut');
 		}
 	}
 });
