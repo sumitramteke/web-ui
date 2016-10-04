@@ -5,7 +5,11 @@ export default JSONAPISerializer.extend({
 		return payload;
 	},
 
-	normalizeResponse(store, primaryModelClass, payload, id, requestType) {
+	normalizeResponse(store, primaryModelClass, payload) {
+		if(!!!payload.data[0]) {
+			return payload;
+		}
+
 		let resp = {};
 		resp['data'] = payload.data[0];
 		resp['included'] = payload.included[0];

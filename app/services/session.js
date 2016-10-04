@@ -9,10 +9,11 @@ export default ESASession.extend({
   username: '',
 
   currentUser: Ember.computed('isAuthenticated', function() {
-    if (this.get('isAuthenticated')) {
+    if (this.get('isAuthenticated') && 
+    	sessionStorage.getItem('username') !== 'undefined') {
       const promise = this.get('store').queryRecord('user', {email: sessionStorage.getItem('username')});
       return DS.PromiseObject.create({ promise: promise });
-    }
+    } 
   })
 
 });
